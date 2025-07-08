@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hendi'S Websites</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-3" href="#">Hendi'S Websites</a>
+      <div class="d-flex ms-auto me-3">
+        <button class="btn btn-primary d-flex align-items-center gap-2" type="button" id="daftarSekarangBtn" data-bs-toggle="modal" data-bs-target="#modalDaftar">
+          <i class="bi bi-person-circle" style="font-size: 1.2rem;"></i>
+          <span>Daftar Sekarang</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="d-flex align-items-center justify-content-center position-relative overflow-hidden" style="background: #f8f9fa; min-height: 480px; height: 70vh;">
+    <img src="img/img.jpg" alt="Background" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" style="z-index:0; opacity:20%;">
+    <div class="container position-relative d-flex flex-column align-items-center justify-content-center text-center" style="z-index:1;">
+      <h1 class="mb-3 fw-bold display-4" style="color:#0d6efd; text-shadow:0 2px 8px rgba(0,0,0,0.08);">Generate more leads with a <br> profesional landing page!</h1>
+      <form class="d-flex justify-content-center w-100" style="max-width:500px; margin:auto;" role="search">
+        <input class="form-control me-2" type="search" placeholder="Cari sesuatu..." aria-label="Search">
+        <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="mb-2">
+            <i class="bi bi-check-circle" style="font-size: 2rem;"></i>
+          </div>
+          <h5>Mudah Digunakan</h5>
+          <p>Antarmuka yang simpel dan intuitif</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="mb-2">
+            <i class="bi bi-lock" style="font-size: 2rem;"></i>
+          </div>
+          <h5>Aman & Terpercaya</h5>
+          <p>Kerahasiaan data pengguna terjamin.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="mb-2">
+            <i class="bi bi-phone" style="font-size: 2rem;"></i>
+          </div>
+          <h5>User Friendly</h5>
+          <p>Tampilan responsif untuk semua perangkat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kalkulator-diskon" class="py-5" style="background: #e9ecef;">
+    <div class="container">
+      <h2 class="text-center mb-4" style="color:#000000;">Hitung Diskon Impian Kamu</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form id="formDiskon" class="card p-4 shadow-sm border-0" style="background:#f8f9fa;">
+            <div class="mb-3">
+              <label for="hargaAwal" class="form-label">Harga Awal (Rp)</label>
+              <input type="number" class="form-control" id="hargaAwal" placeholder="Masukkan harga awal" required>
+            </div>
+            <div class="mb-3">
+              <label for="persenDiskon" class="form-label">Diskon (%)</label>
+              <input type="number" class="form-control" id="persenDiskon" placeholder="Masukkan persen diskon" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Hitung</button>
+          </form>
+          <div id="hasilDiskon" class="alert alert-info mt-4 d-none text-center"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="modalDaftar" tabindex="-1" aria-labelledby="modalDaftarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDaftarLabel">Formulir Pendaftaran</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="nama" placeholder="Masukkan nama lengkap">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Masukkan email">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Masukkan password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Daftar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script>
+    document.getElementById('formDiskon').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const hargaAwal = parseFloat(document.getElementById('hargaAwal').value);
+      const persenDiskon = parseFloat(document.getElementById('persenDiskon').value);
+      if (isNaN(hargaAwal) || isNaN(persenDiskon) || hargaAwal < 0 || persenDiskon < 0 || persenDiskon > 100) {
+        document.getElementById('hasilDiskon').classList.remove('d-none','alert-info');
+        document.getElementById('hasilDiskon').classList.add('alert-danger');
+        document.getElementById('hasilDiskon').innerText = 'Input tidak valid!';
+        return;
+      }
+      const potongan = hargaAwal * persenDiskon / 100;
+      const hargaAkhir = hargaAwal - potongan;
+      document.getElementById('hasilDiskon').classList.remove('d-none','alert-danger');
+      document.getElementById('hasilDiskon').classList.add('alert-info');
+      document.getElementById('hasilDiskon').innerHTML = `Harga Akhir: <b>Rp ${hargaAkhir.toLocaleString('id-ID')}</b><br>Potongan: Rp ${potongan.toLocaleString('id-ID')}`;
+    });
+  </script>
+</body>
+</html>
